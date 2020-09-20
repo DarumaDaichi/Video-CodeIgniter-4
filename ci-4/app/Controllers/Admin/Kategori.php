@@ -25,9 +25,9 @@ class Kategori extends BaseController
 		echo "menampilkan form insert";
 	}
 
-	public function formUpdate()
+	public function formUpdate($id = null)
 	{
-		echo "menampilkan form update";
+		echo "menampilkan form update $id";
 	}
 
 	public function update()

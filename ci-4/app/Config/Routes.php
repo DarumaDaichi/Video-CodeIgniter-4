@@ -32,7 +32,15 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 // $routes->get('/', 'Login::index');
 
-$routes->get('kategori/(:any)', 'admin\kategori::selectWhere/$1');
+//$routes->get('kategori/(:any)', 'admin\kategori::selectWhere/$1');
+
+$routes->group('admin', function($routes){
+
+	$routes->add('kategori/form' , 'Admin\kategori::formInsert');
+	$routes->add('kategori' , 'Admin\kategori::select');
+	$routes->add('kategori/update/(:any)' , 'Admin\kategori::formUpdate/$1');
+
+});
 
 /**
  * --------------------------------------------------------------------
