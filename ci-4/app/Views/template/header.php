@@ -10,7 +10,7 @@
     <nav>
         <ul>
             <a href="<?php echo base_url()?> /admin/kategori"> <li>Select</li> </a>
-            <a href="<?php echo base_url()?> /admin/kategori/form"> <li>Insert</li> </a>
-            <a href="<?php echo base_url()?> /admin/kategori/update/9"> <li>Update</li> </a>
+            <a href="<?php echo base_url()?> /admin/kategori/create"> <li>Insert</li> </a>
+            <a href="<?php echo base_url()?> /admin/kategori/find/9"> <li>Update</li> </a>
         </ul>
     </nav>

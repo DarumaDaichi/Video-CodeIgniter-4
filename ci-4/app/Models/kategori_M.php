@@ -6,6 +6,7 @@
     class kategori_M extends Model 
     {
         protected $table = 'tblkategori';
+        protected $allowedFields = ['kategori','keterangan'];
     }
 
 ?>

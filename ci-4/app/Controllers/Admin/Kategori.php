@@ -11,7 +11,7 @@ class Kategori extends BaseController
 		echo "Saya Tampan";
 	}
 
-	public function select()
+	public function read()
 	{
 
 		$model 		= new kategori_M ();
@@ -27,23 +27,29 @@ class Kategori extends BaseController
 		
 	}
 
-	public function selectWhere($id = null)
-	{
-		echo "menampilkan data yang dipilih $id";
-	}
+	// public function selectWhere($id = null)
+	// {
+	// 	echo "menampilkan data yang dipilih $id";
+	// }
 
-	public function formInsert()
+	public function create()
 	{
 		
-		return view ("kategori/forminsert");
+		return view ("kategori/insert");
 		
 	}
 
-	public function formUpdate($id = null)
+	public function insert()
 	{
-		echo view ("template/header");
-		echo view ("kategori/update");
-		echo view ("template/footer");
+		$model = new kategori_M();
+		$model -> insert($_POST);
+
+		return redirect()->to(base_url()."/admin/kategori");
+	}
+
+	public function find($id = null)
+	{
+		echo "<h1>Update data</h1>";
 	}
 
 	public function update()
