@@ -1,3 +1,7 @@
+<?= $this->extend('template/admin')?>
+
+<?= $this->section('content')?>
+
 <h1> <?php echo $judul; ?> </h1>
 
 <?php foreach($kategori as $key => $value) :?>
@@ -6,4 +10,6 @@
 
 <?php endforeach;?>
 
-<h1> <?= $kategori[0]?></h1>
+<h1> <?= $kategori[1]?></h1>
+
+<?= $this->endSection()?>

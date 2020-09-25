@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant Ci-4</title>
+    <title>View Layout</title>
 </head>
 <body>
     
@@ -13,4 +13,11 @@
             <a href="<?php echo base_url()?> /admin/kategori/form"> <li>Insert</li> </a>
             <a href="<?php echo base_url()?> /admin/kategori/update/9"> <li>Update</li> </a>
         </ul>
+
+        
     </nav>
+
+    <?= $this->renderSection('content')?>
+
+</body>
+</html>
