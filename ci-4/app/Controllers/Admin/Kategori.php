@@ -1,6 +1,7 @@
 <?php namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
+use App\Models\Kategori_M;
 
 class Kategori extends BaseController
 {
@@ -12,9 +13,13 @@ class Kategori extends BaseController
 
 	public function select()
 	{
+
+		$model 		= new kategori_M ();
+		$kategori 	= $model -> findAll();
+
 		$data = [
 			'judul' 	=> 'SELECT DATA',
-			'kategori' 	=> ['Makanan' , 'Minuman' , 'jajan' , 'Gorengan' , 'Buah']
+			'kategori' 	=> $kategori
 		];
 
 		
