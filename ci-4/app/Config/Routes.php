@@ -36,6 +36,7 @@ $routes->setAutoRoute(true);
 
 $routes->group('admin', function($routes){
 
+	$routes->add('/' , 'Admin\adminpage::index');
 	$routes->add('kategori/create' , 'Admin\kategori::create');
 	$routes->add('kategori' , 'Admin\kategori::read');
 	$routes->add('kategori/find/(:any)' , 'Admin\kategori::find/$1');

@@ -9,9 +9,17 @@
     
     <nav>
         <ul>
-            <a href="<?php echo base_url()?> /admin/kategori"> <li>Select</li> </a>
-            <a href="<?php echo base_url()?> /admin/kategori/create"> <li>Insert</li> </a>
-            <a href="<?php echo base_url()?> /admin/kategori/find/9"> <li>Update</li> </a>
+            <a href="<?php echo base_url('/admin')?>">         
+                <li>Home</li> 
+            </a>
+
+            <a href="<?php echo base_url('/admin/kategori')?>">         
+                <li>Kategori</li> 
+            </a>
+
+            <a href="<?php echo base_url('admin/menu')?>">         
+                <li>Menu</li> 
+            </a>
         </ul>
 
         

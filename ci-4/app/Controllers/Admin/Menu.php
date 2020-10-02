@@ -1,19 +1,24 @@
-<?php namespace App\Controllers;
+<?php namespace App\Controllers\Admin;
+
+use App\Controllers\BaseController;
 
 class Menu extends BaseController
 {
 	public function index()
 	{
-		return view('welcome_message');
+		return view('Menu/form');
 	}
 
-	public function select(){
-		echo "<h1> untuk menampilkan data </h1>";
-	}
-
-	public function update($id = 2 , $nama = "Joni")
+	public function insert()
 	{
-		echo "Untuk Update data dengan id : $id $nama" ;
+		$file = $this->request->getFile('gambar');
+
+		$name =	$file->getName();
+
+		$file->move('./upload');
+
+		echo $name.'sudah di upload';
+
 	}
 
 	//--------------------------------------------------------------------
