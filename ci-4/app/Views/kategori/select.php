@@ -2,11 +2,11 @@
 
 <?= $this->section('content')?>
 
-<a href="<?php echo base_url('/admin/kategori/create')?>"> Tambah data </a>
+<a href="<?php echo base_url('/admin/kategori/create')?>" class="btn btn-primary mt-2"> TAMBAH DATA </a>
 
 <h1> <?php echo $judul; ?> </h1>
 
-<table border="1px">
+<table class="table">
 
     <tr>
         <th>No</th>

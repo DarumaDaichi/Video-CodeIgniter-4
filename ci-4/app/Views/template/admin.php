@@ -1,35 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Layout</title>
+
+    <link rel="stylesheet" href="<?= base_url('/Bootstrap/css/bootstrap.min.css') ?>">
 </head>
+
 <body>
-    
-    <nav>
-        <ul>
-            <a href="<?php echo base_url('/admin')?>">         
-                <li>Home</li> 
-            </a>
 
-            <a href="<?php echo base_url('/admin/kategori')?>">         
-                <li>Kategori</li> 
-            </a>
+    <div class="container">
 
-            <a href="<?php echo base_url('admin/menu')?>">         
-                <li>Menu</li> 
-            </a>
+        <div class="row">
+            <div class="col">
+                <nav class="navbar navbar-light bg-light">
+                    <a href="<?php echo base_url('/admin') ?>" class="navbar-brand">Admin Page</a>
+                </nav>
+            </div>
+        </div>
 
-            <a href="<?php echo base_url('admin/user')?>">         
-                <li>User</li> 
-            </a>
-        </ul>
+        <div class="row">
+            <div class="col-4">
+                <div class="card" style="width : 18rem;">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a href="<?php echo base_url('/admin/kategori')?> ">Kategori</a></li>
+                        <li class="list-group-item"><a href="<?php echo base_url('admin/menu') ?>"> Menu </a></li>
+                        <li class="list-group-item"><a href="<?php echo base_url('admin/user') ?>"> User</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-8">
+                <?= $this->renderSection('content') ?>
+            </div>
+        </div>
 
-        
-    </nav>
-
-    <?= $this->renderSection('content')?>
+    </div>
 
 </body>
+
 </html>
