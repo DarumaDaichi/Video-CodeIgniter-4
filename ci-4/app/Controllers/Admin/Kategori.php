@@ -45,7 +45,8 @@ class Kategori extends BaseController
 
 		if ($model->insert($_POST) === false) {
 			$error = $model->errors();
-			echo $error['kategori'];
+			session()->setFlashdata('info' , $error['kategori']);
+			return redirect()->to(base_url("/admin/kategori/create"));
 		} else {
 			return redirect()->to(base_url("/admin/kategori"));
 		};
