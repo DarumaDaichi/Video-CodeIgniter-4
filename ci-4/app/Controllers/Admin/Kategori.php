@@ -40,9 +40,13 @@ class Kategori extends BaseController
 	public function insert()
 	{
 		$model = new kategori_M();
-		$model -> insert($_POST);
 
-		return redirect()->to(base_url("/admin/kategori"));
+		if ($model->insert($_POST)===false){
+			$error = $model->errors();
+			echo $error['kategori'];
+		}else{
+			return redirect()->to(base_url("/admin/kategori"));
+		};
 	}
 
 	public function find($id = null)
