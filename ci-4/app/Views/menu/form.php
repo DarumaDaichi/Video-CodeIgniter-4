@@ -1,13 +1,19 @@
-<?= $this->extend('template/admin')?>
+<?= $this->extend('template/admin') ?>
 
-<?= $this->section('content')?>
+<?= $this->section('content') ?>
 
-<h1>Upload Gambar</h1>
+<div class="row">
+    <?= view_cell('App\Controllers\Admin\Menu::option')?>
+</div>
 
-<form action="<?= base_url('/admin/menu/insert')?>" method="post" enctype="multipart/form-data">
-    Gambar    : <input type="file" name="gambar" required>
-    <br>
-    <input type="submit" name="simpan" value="simpan">
-</form>
+<div class="row">
+    <h1>Upload Gambar</h1>
 
-<?= $this->endSection()?>
+    <form action="<?= base_url('/admin/menu/insert') ?>" method="post" enctype="multipart/form-data">
+        Gambar : <input type="file" name="gambar" required>
+        <br>
+        <input type="submit" name="simpan" value="simpan">
+    </form>
+</div>
+
+<?= $this->endSection() ?>
