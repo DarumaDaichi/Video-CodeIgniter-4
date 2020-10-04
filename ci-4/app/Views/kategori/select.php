@@ -1,34 +1,44 @@
-<?= $this->extend('template/admin')?>
+<?= $this->extend('template/admin') ?>
 
-<?= $this->section('content')?>
+<?= $this->section('content') ?>
 
-<a href="<?php echo base_url('/admin/kategori/create')?>" class="btn btn-primary mt-2"> TAMBAH DATA </a>
+<div class="row">
+    <div class="col-4">
+        <a href="<?php echo base_url('/admin/kategori/create') ?>" class="btn btn-primary mt-2"> TAMBAH DATA </a>
+    </div>
 
-<h1> <?php echo $judul; ?> </h1>
+    <div class="col">
+        <h3> <?php echo $judul; ?> </h3>
+    </div>
+</div>
 
-<table class="table">
+<div class="row mt-2">
 
-    <tr>
-        <th>No</th>
-        <th>Kategori</th>
-        <th>Keterangan</th>
-        <th>Hapus</th>
-        <th>Ubah</th>
-    </tr>
-    <?php $no=1 ?>
-    <?php foreach($kategori as $key => $value) :?>
-    <tr>
-        <td><?= $no++?></td>
-        <td><?= $value['kategori'] ?></td>
-        <td><?= $value['keterangan']?></td>
-        <td><a href="<?= base_url()?>/admin/kategori/delete/<?= $value['idkategori']?>">Hapus</a></td>
-        <td><a href="<?= base_url()?>/admin/kategori/find/<?= $value['idkategori']?>">Ubah</a></td>
-    </tr>
+    <table class="table">
 
-    <?php endforeach;?>
+        <tr>
+            <th>No</th>
+            <th>Kategori</th>
+            <th>Keterangan</th>
+            <th>Hapus</th>
+            <th>Ubah</th>
+        </tr>
+        <?php $no = 1 ?>
+        <?php foreach ($kategori as $key => $value) : ?>
+            <tr>
+                <td><?= $no++ ?></td>
+                <td><?= $value['kategori'] ?></td>
+                <td><?= $value['keterangan'] ?></td>
+                <td><a href="<?= base_url() ?>/admin/kategori/delete/<?= $value['idkategori'] ?>">Hapus</a></td>
+                <td><a href="<?= base_url() ?>/admin/kategori/find/<?= $value['idkategori'] ?>">Ubah</a></td>
+            </tr>
 
-</table>
+        <?php endforeach; ?>
 
-<?= $pager->links('group1' , 'bootstrap')?>
+    </table>
 
-<?= $this->endSection()?>
+</div>
+
+<?= $pager->links('group1', 'bootstrap') ?>
+
+<?= $this->endSection() ?>
