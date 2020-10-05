@@ -2,6 +2,17 @@
 
 <?= $this->section('content') ?>
 
+<?php 
+    if(isset($_GET['page_group1'])){
+        $page   = $_GET['page_group1'];
+        $jumlah = 3;
+        $no     =($jumlah * $page) - $jumlah + 1 ;
+    }else{
+        $no = 1; 
+    }
+?>
+
+
 <div class="row">
     <div class="col-4">
         <a href="<?php echo base_url('/admin/kategori/create') ?>" class="btn btn-primary mt-2"> TAMBAH DATA </a>
@@ -22,7 +33,7 @@
             <th>Keterangan</th>
             <th>Aksi</th>
         </tr>
-        <?php $no = 1 ?>
+        <?php $no ?>
         <?php foreach ($kategori as $key => $value) : ?>
             <tr>
                 <td><?= $no++ ?></td>

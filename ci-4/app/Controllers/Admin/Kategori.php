@@ -20,7 +20,7 @@ class Kategori extends BaseController
 
 		$data = [
 			'judul' 	=> 'DATA KATEGORI',
-			'kategori'	=> $model->paginate(2, 'group1'),
+			'kategori'	=> $model->paginate(3, 'group1'),
 			'pager'		=> $model->pager
 
 		];
