@@ -1,19 +1,29 @@
-<?= $this->extend('template/admin')?>
+<?= $this->extend('template/admin') ?>
 
-<?= $this->section('content')?>
+<?= $this->section('content') ?>
 
-<?php
-     echo session()->getFlashdata('info');
-?>
+<?php echo session()->getFlashdata('info'); ?>
 
-<h1>Insert Data</h1>
+<div class="col">
+    <h1>Insert Data</h1>
+</div>
 
-<form action="<?= base_url()?>/admin/kategori/insert" method="post">
-    kategori    : <input type="text" name="kategori" required>
-    <br>
-    Keterangan  : <input type="text" name="keterangan" required>
-    <br>
-    <input type="submit" name="simpan" value="simpan">
-</form>
+<div class="col-8">
+    <form action="<?= base_url() ?>/admin/kategori/insert" method="post">
+        <div class="form-group">
+            <label for="kategori">Kategori : </label>
+            <input type="text" class="form-control" name="kategori" required>
+        </div>
 
-<?= $this->endSection()?>
+        <div class="form-group">
+            <label for="keterangan">Keterangan : </label>
+            <input type="text" class="form-control" name="keterangan" required>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" name="simpan" value="simpan">
+        </div>
+    </form>
+</div>
+
+<?= $this->endSection() ?>

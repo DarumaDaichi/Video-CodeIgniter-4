@@ -1,16 +1,27 @@
-<?= $this->extend('template/admin')?>
+<?= $this->extend('template/admin') ?>
 
-<?= $this->section('content')?>
+<?= $this->section('content') ?>
 
-<h1>Update Data</h1>
+<?php echo session()->getFlashdata('info'); ?>
 
-<form action="<?= base_url()?>/admin/kategori/update" method="post">
-    kategori    : <input type="text" name="kategori" value="<?= $kategori['kategori']?>" required>
-    <br>
-    Keterangan  : <input type="text" name="keterangan" value="<?= $kategori['keterangan']?>" required>
-    <br>
-    <input type="hidden" name="idkategori" value="<?= $kategori['idkategori']?>">
-    <input type="submit" name="simpan" value="simpan">
-</form>
+<div class="col">
+    <h1>Update Data</h1>
+</div>
 
-<?= $this->endSection()?>
+<div class="col-8">
+    <form action="<?= base_url() ?>/admin/kategori/update" method="post">
+        <div class="form-group">
+            <label for="kategori">Kategori : </label>
+            <input type="text" class="form-control" name="kategori" value="<?= $kategori['kategori'] ?>" required>
+        </div>
+
+        <div class="form-group">
+            <label for="keterangan">Keterangan : </label>
+            <input type="text" class="form-control" name="keterangan" value="<?= $kategori['keterangan'] ?>" required>
+        </div>
+        <input type="hidden" name="idkategori" value="<?= $kategori['idkategori'] ?>">
+        <input type="submit" name="simpan" value="simpan">
+    </form>
+</div>
+
+<?= $this->endSection() ?>
