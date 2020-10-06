@@ -71,6 +71,35 @@ class Menu extends BaseController
 		
 	}
 
+	public function insert()
+	{
+		$request	= \Config\Services::request();
+		$file		= $request->getFile('gambar');
+		$name		= $file->getName();
+
+		$data		= [
+			'idkategori'	=> $request->getPost('idkategori'),
+			'menu'			=> $request->getPost('menu'),
+			'gambar'		=> $name,
+			'harga'			=> $request->getPost('harga')
+
+		];
+
+		$model 		= new menu_m();
+		$model->insert($data);
+		$file->move('./uplomovead');
+
+		return redirect()->to(base_url("/admin/menu"));
+
+		// if ($model->insert($_POST) === false) {
+		// 	$error = $model->errors();
+		// 	session()->setFlashdata('info', $error['kategori']);
+		// 	return redirect()->to(base_url("/admin/kategori/create"));
+		// } else {
+		// 	return redirect()->to(base_url("/admin/kategori"));
+		// };
+	}
+
 	public function create()
 	{
 		$model		= new kategori_M();
