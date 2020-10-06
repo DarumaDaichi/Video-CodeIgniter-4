@@ -1,35 +1,28 @@
-<?php namespace App\Controllers\Admin;
+<?php
+
+namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
 use App\Models\kategori_M;
+use App\Models\menu_m;
 
 class Menu extends BaseController
 {
 	public function index()
 	{
-		return view('Menu/form');
-	}
 
-	public function insert()
-	{
-		$file = $this->request->getFile('gambar');
+		$pager 		= \Config\Services::pager();
+		$model 		= new menu_m();
 
-		$name =	$file->getName();
-
-		$file->move('./upload');
-
-		echo $name.'sudah di upload';
-
-	}
-
-	public function option()
-	{
-		$model = new kategori_m();
-		$kategori = $model->findAll();
 		$data = [
-			'kategori'	=> $kategori
+			'judul' 	=> 'MENU',
+			'menu'	=> $model->paginate(3, 'group1'),
+			'pager'		=> $model->pager
+
 		];
-		return view('template/option' , $data);
+
+
+		return view("menu/select", $data);
 	}
 
 	//--------------------------------------------------------------------
