@@ -25,6 +25,21 @@ class Menu extends BaseController
 		return view("menu/select", $data);
 	}
 
+	public function option()
+	{
+		$model 	= new kategori_M();
+		$kategori 	= $model->findAll();
+		$data 	= [
+			'kategori' 	=> $kategori
+		];
+
+		return view('template/option' , $data);
+	}
+
+	public function read()
+	{
+		echo "read";
+	}
 	//--------------------------------------------------------------------
 
 }

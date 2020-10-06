@@ -24,6 +24,14 @@ if (isset($_GET['page_group1'])) {
 </div>
 
 <div class="row mt-2">
+    <div class="col-6">
+        <form action="<?= base_url('/admin/menu/read')?>" method="get">
+            <?= view_cell('\App\Controllers\Admin\Menu::option')?>
+        </form>
+    </div>
+</div>
+
+<div class="row mt-2">
     <div class="col">
         <table class="table">
             <tr>
