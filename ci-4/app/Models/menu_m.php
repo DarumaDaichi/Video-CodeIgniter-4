@@ -6,6 +6,7 @@ use CodeIgniter\Model;
 class menu_m extends Model 
 {
     protected $table                = 'tblmenu';
+    protected $primaryKey           = 'idmenu';
 }
 
 ?>

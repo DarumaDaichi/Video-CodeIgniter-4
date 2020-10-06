@@ -68,6 +68,16 @@ class Menu extends BaseController
 
 			return view("menu/cari", $data);
 		}
+		
+	}
+
+	public function delete($id = null)
+	{
+
+		$model = new menu_m();
+		$model->delete($id);
+
+		return redirect()->to(base_url("/admin/menu"));
 	}
 	//--------------------------------------------------------------------
 
