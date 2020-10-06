@@ -16,7 +16,7 @@ class Menu extends BaseController
 
 		$data = [
 			'judul' 	=> 'MENU',
-			'menu'	=> $model->paginate(3, 'group1'),
+			'menu'		=> $model->paginate(3, 'group1'),
 			'pager'		=> $model->pager
 
 		];
@@ -27,18 +27,47 @@ class Menu extends BaseController
 
 	public function option()
 	{
-		$model 	= new kategori_M();
+		$model 		= new kategori_M();
 		$kategori 	= $model->findAll();
-		$data 	= [
+		$data 		= [
 			'kategori' 	=> $kategori
 		];
 
-		return view('template/option' , $data);
+		return view('template/option', $data);
 	}
 
 	public function read()
 	{
-		echo "read";
+		$pager	=\Config\Services::pager();
+
+		if (isset($_GET['idkategori'])) {
+			$id 	= $_GET['idkategori'];
+			$model 	= new menu_m();
+			$jumlah	= $model->where('idkategori', $id)->findAll();
+			$count	= count($jumlah);
+
+			$tampil = 3;
+			$mulai	= 0;
+
+			if(isset($_GET['page']))
+			{
+				$page	= $_GET['page'];
+				$mulai	= ($tampil * $page) - $tampil;
+			}
+
+			$menu	= $model->where('idkategori', $id)->findAll($tampil , $mulai);
+
+			$data = [
+				'judul' 	=> 'DATA PENCARIAN MENU',
+				'menu'		=> $menu,
+				'pager'		=> $pager,
+				'tampil'	=> $tampil,
+				'total'		=> $count
+
+			];
+
+			return view("menu/cari", $data);
+		}
 	}
 	//--------------------------------------------------------------------
 
