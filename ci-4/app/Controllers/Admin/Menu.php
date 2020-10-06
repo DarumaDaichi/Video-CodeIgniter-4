@@ -71,6 +71,16 @@ class Menu extends BaseController
 		
 	}
 
+	public function create()
+	{
+		$model		= new kategori_M();
+		$kategori 	= $model->findAll();
+		$data 		= [
+			'kategori' 	=> $kategori
+		];
+		return view("menu/insert" , $data);
+	}
+
 	public function delete($id = null)
 	{
 
