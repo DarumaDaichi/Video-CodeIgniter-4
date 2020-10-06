@@ -2,10 +2,18 @@
 
 <?= $this->section('content') ?>
 
-<?php echo session()->getFlashdata('info'); ?>
+<div class="col">
+    <?php
+    if (!empty(session()->getFlashdata('info'))) {
+        echo '<div class = "alert alert-danger" role="alert">';
+        echo session()->getFlashdata('info');
+        echo '</div>';
+    }
+    ?>
+</div>
 
 <div class="col">
-    <h1>Insert Data</h1>
+    <h3>Insert Data</h3>
 </div>
 
 <div class="col-8">
