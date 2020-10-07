@@ -110,6 +110,47 @@ class Menu extends BaseController
 		return view("menu/insert" , $data);
 	}
 
+	public function find($id = null)
+	{
+		$model 	= new menu_m();
+		$menu 	= $model->find($id);
+
+		$kategorimodel	= new kategori_M();
+		$kategori		= $kategorimodel->findAll();
+
+		$data = [
+			'judul' 	=> 'UPDATE DATA',
+			'menu' 		=> $menu,
+			'kategori'	=> $kategori,
+		];
+
+		return view("menu/update", $data);
+	}
+
+	public function update()
+	{
+		$id		= $this->request->getPost('idmenu');
+		$file	= $this->request->getFile('gambar');
+		$name	= $file->getName();
+
+		if(empty($name){
+			$name	=	$this->request->getPost('gambar');
+		}else {
+			$file -> move('./upload');
+		}
+		
+		$data	= [
+			'idkategori'	=> $this->request->getPost('idkategori'),
+			'menu'			=> $this->request->getPost('menu'),
+			'gambar'		=> $name,
+			'harga'			=> $this->request->getPost('harga')
+		];
+
+		$model	= new menu_m();
+		$model	->update($id,$data);
+		return redirect()->to (base_url("/admin/menu"));
+	}
+
 	public function delete($id = null)
 	{
 
