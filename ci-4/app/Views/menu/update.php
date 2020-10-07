@@ -35,7 +35,7 @@
 
         <div class="form-group">
             <label for="harga">Harga : </label>
-            <input type="number" value="<?= $harga['harga']?>" class="form-control" name="harga" required>
+            <input type="number" value="<?= $menu['harga']?>" class="form-control" name="harga" required>
         </div>
 
         <div class="form-group">
@@ -43,8 +43,8 @@
             <input type="file" name="gambar" required class="form-control">
         </div>
         
-        <input type="hidden" name="gambar" value="<?= $gambar['gambar']?>" class="form-control">
-        <input type="hidden" name="idmenu" value="<?= $idmenu['idmenu']?>" required class="form-control">
+        <input type="hidden" name="gambar" value="<?= $menu['gambar']?>" class="form-control">
+        <input type="hidden" name="idmenu" value="<?= $menu['idmenu']?>" required class="form-control">
 
         <div class="form-group">
             <input type="submit" name="simpan" value="simpan" class="btn btn-primary">

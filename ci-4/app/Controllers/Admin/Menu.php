@@ -87,7 +87,7 @@ class Menu extends BaseController
 
 		$model 		= new menu_m();
 		$model->insert($data);
-		$file->move('./uplomovead');
+		$file->move('./upload');
 
 		return redirect()->to(base_url("/admin/menu"));
 
@@ -121,7 +121,7 @@ class Menu extends BaseController
 		$data = [
 			'judul' 	=> 'UPDATE DATA',
 			'menu' 		=> $menu,
-			'kategori'	=> $kategori,
+			'kategori'	=> $kategori
 		];
 
 		return view("menu/update", $data);
@@ -130,12 +130,13 @@ class Menu extends BaseController
 	public function update()
 	{
 		$id		= $this->request->getPost('idmenu');
-		$file	= $this->request->getFile('gambar');
-		$name	= $file->getName();
+		$file		= $this->request->getFile('gambar');
+		$name		= $file->getName();
 
-		if(empty($name){
+		if(empty($name)){
 			$name	=	$this->request->getPost('gambar');
-		}else {
+		}	
+		else {
 			$file -> move('./upload');
 		}
 		
@@ -147,7 +148,7 @@ class Menu extends BaseController
 		];
 
 		$model	= new menu_m();
-		$model	->update($id,$data);
+		$model->update($id,$data);
 		return redirect()->to (base_url("/admin/menu"));
 	}
 
