@@ -38,7 +38,7 @@ class Menu extends BaseController
 
 	public function read()
 	{
-		$pager	=\Config\Services::pager();
+		$pager	= \Config\Services::pager();
 
 		if (isset($_GET['idkategori'])) {
 			$id 	= $_GET['idkategori'];
@@ -49,13 +49,12 @@ class Menu extends BaseController
 			$tampil = 3;
 			$mulai	= 0;
 
-			if(isset($_GET['page']))
-			{
+			if (isset($_GET['page'])) {
 				$page	= $_GET['page'];
 				$mulai	= ($tampil * $page) - $tampil;
 			}
 
-			$menu	= $model->where('idkategori', $id)->findAll($tampil , $mulai);
+			$menu	= $model->where('idkategori', $id)->findAll($tampil, $mulai);
 
 			$data = [
 				'judul' 	=> 'DATA PENCARIAN MENU',
@@ -68,7 +67,6 @@ class Menu extends BaseController
 
 			return view("menu/cari", $data);
 		}
-		
 	}
 
 	public function insert()
@@ -86,18 +84,16 @@ class Menu extends BaseController
 		];
 
 		$model 		= new menu_m();
-		$model->insert($data);
-		$file->move('./upload');
 
-		return redirect()->to(base_url("/admin/menu"));
 
-		// if ($model->insert($_POST) === false) {
-		// 	$error = $model->errors();
-		// 	session()->setFlashdata('info', $error['kategori']);
-		// 	return redirect()->to(base_url("/admin/kategori/create"));
-		// } else {
-		// 	return redirect()->to(base_url("/admin/kategori"));
-		// };
+		if ($model->insert($data) === FALSE) {
+			$error = $model->errors();
+			session()->setFlashdata('info', $error);
+			return redirect()->to(base_url("/admin/menu/create"));
+		} else {
+			$file->move('./upload');
+			return redirect()->to(base_url("/admin/menu"));
+		}
 	}
 
 	public function create()
@@ -107,7 +103,7 @@ class Menu extends BaseController
 		$data 		= [
 			'kategori' 	=> $kategori
 		];
-		return view("menu/insert" , $data);
+		return view("menu/insert", $data);
 	}
 
 	public function find($id = null)
@@ -133,13 +129,12 @@ class Menu extends BaseController
 		$file		= $this->request->getFile('gambar');
 		$name		= $file->getName();
 
-		if(empty($name)){
+		if (empty($name)) {
 			$name	=	$this->request->getPost('gambar');
-		}	
-		else {
-			$file -> move('./upload');
+		} else {
+			$file->move('./upload');
 		}
-		
+
 		$data	= [
 			'idkategori'	=> $this->request->getPost('idkategori'),
 			'menu'			=> $this->request->getPost('menu'),
@@ -148,8 +143,14 @@ class Menu extends BaseController
 		];
 
 		$model	= new menu_m();
-		$model->update($id,$data);
-		return redirect()->to (base_url("/admin/menu"));
+
+		if ($model->update($id, $data) === FALSE) {
+			$error = $model->errors();
+			session()->setFlashdata('info', $error);
+			return redirect()->to(base_url("/admin/menu/find/$id"));
+		} else {
+			return redirect()->to(base_url("/admin/menu"));
+		}
 	}
 
 	public function delete($id = null)
