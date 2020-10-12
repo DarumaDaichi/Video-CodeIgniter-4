@@ -47,9 +47,9 @@ if (isset($_GET['page_group1'])) {
                     <?php
                         if($value['aktif'] == 1)
                         {
-                            $aktif  = "ONLINE";
+                            $aktif  = "<div class = 'btn btn-primary'>ONLINE</div>";
                         }else{
-                            $aktif  = "OFFLINE";
+                            $aktif  = "<div class = 'btn btn-danger'>OFFLINE</div>";
                         }
                     ?>
                     <td>
