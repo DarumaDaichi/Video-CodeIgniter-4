@@ -41,12 +41,20 @@ if (isset($_GET['page_group1'])) {
                     <td><?= $value['email'] ?></td>
                     <td>
                         <a href="<?= base_url() ?>/admin/pelanggan/delete/<?= $value['idpelanggan'] ?>">
-                            <img class="mr-4" src="<?= base_url('/icon/trash.svg') ?>">
+                            <img src="<?= base_url('/icon/trash.svg') ?>">
                         </a>
                     </td>
+                    <?php
+                        if($value['aktif'] == 1)
+                        {
+                            $aktif  = "ONLINE";
+                        }else{
+                            $aktif  = "OFFLINE";
+                        }
+                    ?>
                     <td>
-                        <a href="<?= base_url() ?>/admin/pelanggan/delete/<?= $value['idpelanggan'] ?>">
-                            Aktif
+                        <a href="<?= base_url() ?>/admin/pelanggan/update/<?= $value['idpelanggan']?>/<?= $value['aktif']?>">
+                            <?= $aktif?>
                         </a>
                     </td>
                 </tr>
