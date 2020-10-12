@@ -32,7 +32,7 @@
                 <?php endforeach; ?>
             </select>
         </div>
-
+    
         <div class="form-group">
             <label for="menu"> Menu : </label>
             <input type="text" class="form-control" name="menu" required>
