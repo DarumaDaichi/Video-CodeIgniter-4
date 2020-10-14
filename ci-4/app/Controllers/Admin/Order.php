@@ -6,15 +6,35 @@ class Order extends BaseController
 {
 	public function index()
 	{
+        $pager  = \Config\Services::pager();
         $db     = \Config\Database::connect();
-        $sql    = "SELECT * FROM vorder ORDER BY status ASC";
+
+        $sql    = "SELECT * FROM vorder";
+        $result = $db->query($sql);
+        $row    = $result->getResult('array');
+
+        $total  = count($row);
+        $tampil = 5;
+
+        if(isset($_GET['page']))
+        {
+            $page   = $_GET['page'];
+            $mulai  = ($tampil * $page) - $tampil;
+            $sql    = "SELECT * FROM vorder ORDER BY status ASC LIMIT $mulai , $tampil";
+        }else
+        {
+            $sql    = "SELECT * FROM vorder ORDER BY status ASC LIMIT 0 , $tampil";
+        }
 
         $result = $db->query($sql);
         $row    = $result->getResult('array');
 
         $data   = [
-            'judul'     => 'DATA ORDER', 
-            'order'     => $row
+            'judul'     => '<h3>DATA ORDER</h3>', 
+            'order'     => $row,
+            'pager'     => $pager,
+            'perpage'   => $tampil,
+            'total'     => $total
         ];
 
         echo view('order/select' , $data);

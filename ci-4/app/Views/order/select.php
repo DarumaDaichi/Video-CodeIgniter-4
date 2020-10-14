@@ -8,6 +8,18 @@
     </div>
 </div>
 
+<?php
+    if(isset($_GET['page']))
+    {
+        $page   = $_GET['page'];
+        $jumlah = 5;
+        $no     = ($jumlah * $page) - $jumlah + 1;
+    }else
+    {
+        $no = 1;
+    }
+?>
+
 <div class="row mt-2">
     <div class="col">
         <table class="table">
@@ -22,10 +34,9 @@
                 <th>Status</th>
             </tr>
 
-            <?php $no = 1 ?>
             <?php foreach ($order as $value) : ?>
                 <tr>
-                    <td><?= $no++ ?></td>
+                    <td><?= $no++  ?></td>
                     <td><?= $value['idorder'] ?></td>
                     <td><?= $value['pelanggan'] ?></td>
                     <td><?= $value['tglorder'] ?></td>
@@ -44,6 +55,7 @@
                 </tr>
             <?php endforeach;?>
         </table>
+        <?= $pager->makeLinks(1 , $perpage , $total , 'bootstrap')?>
     </div>
 </div>
 
