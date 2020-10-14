@@ -46,9 +46,9 @@
                     <?php 
                         if($value['status'] == 1)
                         {
-                            $status = '<div class = "btn btn-primary">LUNAS</div>';
+                            $status = '<div class = "btn btn-primary" style="cursor : default;">LUNAS</div>';
                         }else{
-                            $status = '<div class = "btn btn-danger">BAYAR</div>';
+                            $status = '<a href = " '.base_url("/admin/order/find").'/'. $value['idorder'] .' " class = "btn btn-danger">BAYAR</a>';
                         }
                     ?>
                     <td><?= $status ?></td>
