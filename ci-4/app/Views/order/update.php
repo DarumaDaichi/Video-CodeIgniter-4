@@ -28,18 +28,30 @@
 </div>
 
 <div class="row">
+    <div class="col">
+        <?php
+        if (!empty(session()->getFlashdata('info'))) {
+            echo '<div class = "alert alert-danger" role="alert">';
+            echo session()->getFlashdata('info');
+            echo '</div>';
+        }
+        ?>
+    </div>
+</div>
+
+<div class="row">
     <div class="col-6">
         <form action="<?= base_url() ?>/admin/order/update" method="post">
             <div class="form-group">
-                <label for="order">Bayar : </label>
+                <label for="Kategori">Bayar : </label>
                 <input type="number" class="form-control" name="bayar" required>
             </div>
 
-            <input type="hidden" name="total" value = "<?= $order[0]['total']?>">
-            <input type="hidden" name="idorder" value = "<?= $order[0]['idorder']?>">
+            <input type="hidden" name="total" value="<?= $order[0]['total']?>" required>
+            <input type="hidden" name="idorder" value="<?= $order[0]['idorder'] ?>" required>
 
             <div class="form-group">
-                <input class="btn btn-primary" type="submit" name="bayar" value="BAYAR">
+                <input class="btn btn-primary" type="submit" name="simpan" value="BAYAR">
             </div>
         </form>
     </div>
@@ -68,7 +80,7 @@
                     <td><?= $value['menu'] ?></td>
                     <td><?= number_format($value['hargajual']) ?></td>
                     <td><?= $value['jumlah'] ?></td>
-                    <td><?= number_format($value['jumlah'] * $value['hargajual']) ?></td>
+                    <td><?= number_format($value['jumlah'] * $value['hargajual'])  ?></td>
                 </tr>
             <?php endforeach; ?>
         </table>
