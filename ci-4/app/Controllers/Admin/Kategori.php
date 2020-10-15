@@ -29,11 +29,6 @@ class Kategori extends BaseController
 		return view("kategori/select", $data);
 	}
 
-	// public function selectWhere($id = null)
-	// {
-	// 	echo "menampilkan data yang dipilih $id";
-	// }
-
 	public function create()
 	{
 		return view("kategori/insert");
