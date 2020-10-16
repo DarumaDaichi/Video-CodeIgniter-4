@@ -17,8 +17,30 @@ class OrderDetail extends BaseController
 
 		];
 
-
 		return view("orderdetail/select", $data);
+	}
+
+	public function cari()
+	{
+		if(isset($_POST['awal']))
+		{
+			$awal	= $_POST['awal'];
+			$sampai	= $_POST['sampai'];
+
+			$sql	= "SELECT * FROM vorderdetail WHERE tglorder BETWEEN '$awal' AND '$sampai' ";
+			
+			$db     = \Config\Database::connect();
+
+			$result = $db->query($sql);
+			$row    = $result->getResult('array');
+
+			$data = [
+				'judul'			=> "DETAIL ORDER",
+				'orderdetail'	=> $row
+			];
+
+			return view("orderdetail/cari" , $data);
+		}
 	}
 
 	//--------------------------------------------------------------------

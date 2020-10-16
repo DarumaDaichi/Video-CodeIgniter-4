@@ -2,17 +2,6 @@
 
 <?= $this->section('content') ?>
 
-<?php
-if (isset($_GET['page_group1'])) {
-    $page   = $_GET['page_group1'];
-    $jumlah = 3;
-    $no     = ($jumlah * $page) - $jumlah + 1;
-} else {
-    $no = 1;
-}
-?>
-
-
 <div class="row">
     <div class="col">
         <h3> <?php echo $judul; ?> </h3>
@@ -50,8 +39,8 @@ if (isset($_GET['page_group1'])) {
                 <th>Jumlah</th>
                 <th>Total</th>
             </tr>
-            <?php $no ?>
-            <?php foreach ($orderdetail as $key => $value) : ?>
+            <?php $no = 1 ?>
+            <?php foreach ($orderdetail as $value) : ?>
                 <tr>
                     <td><?= $no++ ?></td>
                     <td><?= $value['tglorder']?></td>
@@ -67,6 +56,6 @@ if (isset($_GET['page_group1'])) {
     </div>
 </div>
 
-<?= $pager->links('group1', 'bootstrap') ?>
+<!-- -->
 
 <?= $this->endSection() ?>
