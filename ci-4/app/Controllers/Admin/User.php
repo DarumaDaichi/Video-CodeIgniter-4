@@ -1,51 +1,25 @@
 <?php namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
+use App\Models\user_m;
 
 class User extends BaseController
 {
-    protected $session = NULL; 
-
-    public function __construct()
-    {
-        $this->session = \config\Services::session();
-    }
-
-	public function index()
-	{
-		echo "user";
-    }
     
-    public function create ()
+    public function index ()
     {
-        
+        $pager 		= \Config\Services::pager();
+		$model 		= new user_m();
 
-        $tbluser = [
-            'user'      => 'admin',
-            'email'     => 'admin@gmail.com',
-            'level'     => 'admin'
-        ];
+		$data = [
+			'judul' 	=> 'DATA USER',
+			'user'	    => $model->paginate(3, 'group1'),
+			'pager'		=> $model->pager
 
-        $this->session -> set($tbluser);
-    }
+		];
 
-    public function read()
-    {
-        echo $this->session -> get('user');
-        echo "<br>";
-        echo $this->session -> get('email');
-        echo "<br>";
-        echo $this->session -> get('level');
-    }
 
-    public function delete()
-    {
-        $this->session -> remove('email');
-    }
-
-    public function destroy()
-    {
-        $this->session -> destroy();
+		return view("user/select", $data);
     }
 
 	//--------------------------------------------------------------------
