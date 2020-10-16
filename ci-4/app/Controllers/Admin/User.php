@@ -30,13 +30,39 @@ class User extends BaseController
         return view('user/insert' , $data);
     }
 
-    publiv function insert()
+    public function insert()
     {
         $model = new user_m();
 
         $model->insert($_POST);
 
         return redirect()->to(base_url("/admin/user"));
+    }
+
+    public function delete($id = NULL)
+    {
+        $model  = new user_m();
+        $model->delete($id);
+        return redirect()->to(base_url("/admin/user"));
+    }
+
+    public function update($id = NULL , $status = 1)
+    {
+        $model  = new user_m();
+
+        if($status ==  0)
+        {
+            $status = 1;
+        }else{
+            $status = 0;
+        }
+
+        $data = [
+            'aktif' => $status
+        ];
+
+        $model->update($id , $data);
+        return redirect()->to(base_url("/admin/pelanggan"));
     }
 
 	//--------------------------------------------------------------------

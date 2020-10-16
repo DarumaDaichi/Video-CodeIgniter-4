@@ -43,12 +43,16 @@ if (isset($_GET['page_group1'])) {
                     <td><?= $value['level'] ?></td>
                     <?php
                     if ($value['aktif'] == 1) {
-                        $aktif  = "<div class='btn btn-primary' style = 'cursor : default;'>AKTIF</div>";
+                        $aktif  = "<div class='btn btn-primary'>AKTIF</div>";
                     } else {
-                        $aktif  = "<div class='btn btn-danger' style = 'cursor : default;'>OFFLINE</div>";
+                        $aktif  = "<div class='btn btn-danger'>OFFLINE</div>";
                     }
                     ?>
-                    <td><?= $aktif ?></td>
+                    <td>
+                        <a href="<?= base_url() ?>/admin/user/update/<?= $value['iduser']?>/<?= $value['aktif']?>">
+                            <?= $aktif?>
+                        </a>
+                    </td>
                     <td>
                         <a href="<?= base_url() ?>/admin/user/delete/<?= $value['iduser'] ?>">
                             <img class="mr-4" src="<?= base_url('/icon/trash.svg') ?>">
