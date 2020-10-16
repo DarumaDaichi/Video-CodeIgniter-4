@@ -29,7 +29,7 @@
         </div>
 
         <div class="form-group">
-            <input type="submit" name="simpan" value="simpan">
+            <input class="btn btn-primary" type="submit" name="simpan" value="simpan">
         </div>
     </form>
 </div>

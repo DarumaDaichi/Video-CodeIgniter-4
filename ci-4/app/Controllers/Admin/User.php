@@ -22,6 +22,23 @@ class User extends BaseController
 		return view("user/select", $data);
     }
 
+    public function create(){
+        $data   = [
+            'level'     => ['Admin' , 'Koki' , 'Kasir'],
+        ];
+
+        return view('user/insert' , $data);
+    }
+
+    publiv function insert()
+    {
+        $model = new user_m();
+
+        $model->insert($_POST);
+
+        return redirect()->to(base_url("/admin/user"));
+    }
+
 	//--------------------------------------------------------------------
 
 }
