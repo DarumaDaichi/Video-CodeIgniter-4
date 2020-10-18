@@ -38,14 +38,29 @@ $routes->get('/login', 'Admin\Login::index');
 $routes->group('admin',['filter' => 'Auth'] , function ($routes) {
 
 	$routes->add('/', 'Admin\adminpage::index');
-	$routes->add('kategori/create', 'Admin\kategori::create');
+
 	$routes->add('kategori', 'Admin\kategori::read');
+	$routes->add('kategori/create', 'Admin\kategori::create');
 	$routes->add('kategori/find/(:any)', 'Admin\kategori::find/$1');
+	$routes->add('kategori/delete/(:any)', 'Admin\delete::find/$1');
+
 	$routes->add('menu', 'Admin\menu::index');
-	$routes->add('order', 'Admin\order::index');
+	$routes->add('menu/create', 'Admin\menu::create');
+	$routes->add('menu/find/(:any)', 'Admin\menu::find/$1');
+	$routes->add('menu/delete/(:any)', 'Admin\menu::delete/$1');
+
 	$routes->add('pelanggan', 'Admin\pelanggan::index');
+	$routes->add('pelanggan/create', 'Admin\pelanggan::create');
+	$routes->add('pelanggan/find/(:any)', 'Admin\pelanggan::find/$1');
+
+	$routes->add('order', 'Admin\order::index');
+	$routes->add('order/find/(:any)', 'Admin\order::find/$1');
+
 	$routes->add('orderdetail', 'Admin\orderdetail::index');
+
 	$routes->add('user', 'Admin\user::index');
+	$routes->add('user/find/(:any)', 'Admin\user::find/$1');
+	$routes->add('user/delete/(:any)', 'Admin\user::delete/$1');
 });
 
 /**
