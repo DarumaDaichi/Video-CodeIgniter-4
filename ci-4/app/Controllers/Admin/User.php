@@ -24,7 +24,7 @@ class User extends BaseController
 
     public function create(){
         $data   = [
-            'level'     => ['Admin' , 'Koki' , 'Kasir']
+            'level'     => ['Admin' , 'Koki' , 'Kasir' ,'Operator']
         ];
 
         return view('user/insert' , $data);
@@ -78,7 +78,7 @@ class User extends BaseController
         ];
 
         $model->update($id , $data);
-        return redirect()->to(base_url("/admin/pelanggan"));
+        return redirect()->to(base_url("/admin/user"));
     }
 
     public function find($id = NULL)
@@ -89,7 +89,7 @@ class User extends BaseController
         $data   =[
             'judul' => 'UPDATE DATA',
             'user'  => $user,
-            'level'     => ['Admin' , 'Koki' , 'Kasir']
+            'level'     => ['Admin' , 'Koki' , 'Kasir' , 'Operator']
         ];
 
         return view('user/update' , $data);

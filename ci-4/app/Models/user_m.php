@@ -19,6 +19,10 @@
                 'alpha_numeric_space'   => 'Tidak boleh menggunakan symbol',
                 'min_length'            => 'Minimal 3 huruf',
                 'is_unique'             => 'Nama telah digunakan'
+            ],
+
+            'email' => [
+                'valid_email'   => 'Email salah'
             ]
         ];
     }

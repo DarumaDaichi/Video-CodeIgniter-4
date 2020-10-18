@@ -6,6 +6,7 @@ class Adminpage extends BaseController
 {
 	public function index()
 	{
+		
 		return view('template/admin');
 	}
 
