@@ -29,7 +29,7 @@ class Login extends BaseController
 			# code...
 		}
 
-		return view('template/admin' , $data);
+		return view('template/login' , $data);
 	}
 
 	public function setSession($user)
@@ -42,6 +42,12 @@ class Login extends BaseController
 		];
 
 		session()->set($data);
+	}
+
+	public function logout()
+	{
+		session()->destroy();
+		return redirect()->to(base_url('/login'));
 	}
 
 	//--------------------------------------------------------------------

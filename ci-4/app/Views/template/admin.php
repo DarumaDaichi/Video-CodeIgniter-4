@@ -23,6 +23,7 @@
 
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
+
                             <li class="nav-item mt-2 ml-5">Username :</li>
                             <li class="nav-item mr-4">
                                 <a href="#" class="nav-link">
@@ -34,6 +35,7 @@
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
+
                             <li class="nav-item mt-2 ml-5">Email : </li>
                             <li class="nav-item mt-2 mr-4 ml-1">
                                 <?php
@@ -42,6 +44,7 @@
                                 }
                                 ?>
                             </li>
+
                             <li class="nav-item mt-2 ml-5">Level : </li>
                             <li class="nav-item mt-2 ml-1">
                                 <?php
@@ -49,6 +52,10 @@
                                     echo session()->get('level');
                                 }
                                 ?>
+                            </li>
+
+                            <li class="nav-item  ml-5 " >
+                                <a class="btn btn-danger" href="<?= base_url('admin/login/logout')?>">Logout</a>
                             </li>
                         </ul>
                     </div>
