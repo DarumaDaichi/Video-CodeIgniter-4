@@ -23,7 +23,8 @@
 
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
-                            <li class="nav-item">
+                            <li class="nav-item mt-2 ml-5">Username :</li>
+                            <li class="nav-item mr-4">
                                 <a href="#" class="nav-link">
                                     <?php
                                     if (!empty(session()->get('user'))) {
@@ -33,16 +34,16 @@
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
-
-                            <li class="nav-item">
+                            <li class="nav-item mt-2 ml-5">Email : </li>
+                            <li class="nav-item mt-2 mr-4 ml-1">
                                 <?php
                                 if (!empty(session()->get('email'))) {
                                     echo session()->get('email');
                                 }
                                 ?>
                             </li>
-
-                            <li class="nav-item">
+                            <li class="nav-item mt-2 ml-5">Level : </li>
+                            <li class="nav-item mt-2 ml-1">
                                 <?php
                                 if (!empty(session()->get('level'))) {
                                     echo session()->get('level');

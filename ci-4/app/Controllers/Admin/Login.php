@@ -7,6 +7,7 @@ class Login extends BaseController
 {
 	public function index()
 	{
+		$data	=[];
 		if($this->request->getMethod() == 'post')
 		{
 			$email		= $this->request->getPost('email');
@@ -15,13 +16,20 @@ class Login extends BaseController
 			$model		= new user_m();
 			$user		= $model->where(['email' => $email , 'password' => $password , 'aktif' => 1])->first();
 			
-			$this->setSession($user);
+			if(empty($user))
+			{
+				$data['info'] = "Email atau Password Salah";
+			}else
+			{
+				$this->setSession($user);
+				return redirect()->to(base_url("/admin"));
+			}
 		}else
 		{
 			# code...
 		}
 
-		return view('template/admin');
+		return view('template/admin' , $data);
 	}
 
 	public function setSession($user)
