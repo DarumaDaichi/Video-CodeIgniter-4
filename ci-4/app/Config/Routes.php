@@ -52,6 +52,7 @@ $routes->group('admin',['filter' => 'Auth'] , function ($routes) {
 	$routes->add('pelanggan', 'Admin\pelanggan::index');
 	$routes->add('pelanggan/create', 'Admin\pelanggan::create');
 	$routes->add('pelanggan/find/(:any)', 'Admin\pelanggan::find/$1');
+	$routes->add('pelanggan/delete/(:any)', 'Admin\pelanggan::delete/$1');
 
 	$routes->add('order', 'Admin\order::index');
 	$routes->add('order/find/(:any)', 'Admin\order::find/$1');
