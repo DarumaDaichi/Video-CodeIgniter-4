@@ -12,7 +12,7 @@
         protected $validationRules      = [
             'user'  => 'alpha_numeric_space|min_length[3]|is_unique[tbluser.user]',
             'email'  => 'valid_email'
-        ];
+        ]; 
         
         protected $validationMessages   = [
             'user' =>   [

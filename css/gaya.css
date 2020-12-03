@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box  ;
+}
+
+.about h3{
+    font-family: bebas neue;
+}
+
+/* Carousel */
+
+.car .image-carousel {
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+}
+
+.text-head {
+    position: absolute;
+    font-family: amsterdam signature;
+    font-size: 19vw;
+    color: white;
+    text-align: center;
+    top: 20%;
+    left: 25%;
+    cursor: default;
+}
+
+.text-head1 {
+    position: absolute;
+    font-family: amsterdam signature;
+    font-size: 19vw;
+    color: white;
+    text-align: center;
+    top: 20%;
+    left: 18%;
+    cursor: default;
+}
+
+.text-samping {
+    font-family: bebas neue;
+    color: #ffaa01;
+    letter-spacing: 5px;
+    font-size: 2.5vw;
+    font-weight: lighter;
+    text-align: center;
+    top: 100%;
+    cursor: default;
+}
+    
+

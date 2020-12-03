@@ -39,7 +39,7 @@ if (isset($_GET['page_group1'])) {
                     <td><?= $value['kategori'] ?></td>
                     <td><?= $value['keterangan'] ?></td>
                     <td>
-                        <a href="<?= base_url() ?>/admin/kategori/delete/<?= $value['idkategori'] ?>">
+                        <a href="<?= base_url() ?>/admin/kategori/hapus/<?= $value['idkategori'] ?>">
                             <img class="mr-4" src="<?= base_url('/icon/trash.svg') ?>">
                         </a>
 

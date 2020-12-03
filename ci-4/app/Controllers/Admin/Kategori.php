@@ -74,7 +74,7 @@ class Kategori extends BaseController
 		}
 	}
 
-	public function delete($id = null)
+	public function hapus($id = null)
 	{
 
 		$model = new Kategori_M();

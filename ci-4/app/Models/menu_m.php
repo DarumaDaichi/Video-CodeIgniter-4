@@ -24,4 +24,8 @@ class menu_m extends Model
             'numeric'   => 'hanya menggunakan angka'
         ]
     ];
+
+    public function getMenu(){
+        return $this->findAll();
+    }
 }

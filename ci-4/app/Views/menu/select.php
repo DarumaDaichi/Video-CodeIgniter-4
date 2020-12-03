@@ -18,7 +18,7 @@ if (isset($_GET['page_group1'])) {
         <a href="<?php echo base_url('/admin/menu/create') ?>" class="btn btn-primary mt-2"> TAMBAH DATA </a>
     </div>
 
-    <div class="col">
+    <div class="col"> 
         <h3> <?php echo $judul; ?> </h3>
     </div>
 </div>

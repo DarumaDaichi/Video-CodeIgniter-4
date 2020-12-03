@@ -22,7 +22,7 @@ class Login extends BaseController
 			} else {
 				if (password_verify($password, $user['password'])) {
 					$this->setSession($user);
-					return redirect()->to(base_url("/admin"));
+					return redirect()->to(base_url("/admin/kategori"));
 				} else {
 					$data['info'] = "Password Salah";
 				}
@@ -49,7 +49,7 @@ class Login extends BaseController
 	public function logout()
 	{
 		session()->destroy();
-		return redirect()->to(base_url('/login'));
+		return redirect()->to(base_url('/admin/login'));
 	}
 
 	//--------------------------------------------------------------------
